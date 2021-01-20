@@ -7,7 +7,7 @@
     >
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <h1 class="title has-text-white">Title</h1>
+            <h1 class="title has-text-white">Glicko2</h1>
         </a>
 
         <div class="navbar-burger">
@@ -28,6 +28,15 @@
             </nuxt-link>
           </li>
         </ul>
+
+        <p class="menu-label is-hidden-touch">Benchmarks</p>
+        <ul class="menu-list">
+          <li v-for="(item, key) of benchmarks" :key="key">
+            <nuxt-link :to="item.to" exact-active-class="is-active">
+              <b-icon :icon="item.icon" /> {{ item.title }}
+            </nuxt-link>
+          </li>
+        </ul>
       </aside>
 
       <div class="container column is-10">
@@ -39,21 +48,28 @@
 
 <script>
 export default {
-  data() {
-    return {
-      items: [
-        {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' },
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' },
-        },
-      ],
-    }
-  },
+    data() {
+        return {
+            items: [
+                {
+                    title: 'Home',
+                    icon: 'home',
+                    to: { name: 'index' },
+                },
+                {
+                    title: 'Inspire',
+                    icon: 'lightbulb',
+                    to: { name: 'inspire' },
+                },
+            ],
+            benchmarks: [
+                {
+                    title: 'NodeJS',
+                    icon: 'nodejs',
+                    to: { name: 'benchmarks-nodejs' },
+                }
+            ]
+        }
+    },
 }
 </script>
